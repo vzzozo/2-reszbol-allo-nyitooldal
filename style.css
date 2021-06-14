@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root{
+    --bal-bg-color: rgba(106, 126, 107, 0.7);
+    --jobb-bg-color: rgba(119, 92, 82, 0.767);
+    --bal-btn-hover-color:rgb(33, 141, 6);
+    --jobb-btn-hover-color:rgb(163, 84, 32);
+    --speed:1000ms;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1{
+    font-size: 4rem;
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+.btn{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    color:#fff;
+    border: #fff solid 0.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 15rem;
+    padding: 1.5rem;
+}
+.oldal.bal .btn:hover{
+    background-color: var(--bal-btn-hover-color);
+    border-color: var(--bal-btn-hover-color);
+}
+.oldal.jobb .btn:hover{
+    background-color: var(--jobb-btn-hover-color);
+    border-color: var(--jobb-btn-hover-color);
+}
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #333;
+}
+
+.oldal{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.oldal.bal{
+    left: 0;
+    background: url('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.oldal.bal::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bal-bg-color);
+}
+
+.oldal.jobb{
+    right: 0;
+    background: url('https://cdn.wallpapersafari.com/67/27/Ej7X42.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.oldal.jobb::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--jobb-bg-color);
+}
+.oldal.jobb, 
+.oldal.bal, 
+.oldal.hover-jobb::before , 
+.oldal.bal::before{
+    transition: all var(--speed) ease-in-out;
+}
+.hover-bal .bal{
+    width:75%;
+}
+.hover-bal .jobb{
+    width:25%;
+}
+
+.hover-jobb .jobb{
+    width:75%;
+}
+.hover-jobb .bal{
+    width:25%;
+}
+
+@media(max-width: 800px){
+    h1{
+        font-size: 2rem;
+        top: 30%;
+    }
+    .btn{
+        padding: 1.2rem;
+        width: 12rem;
+    }
+}
